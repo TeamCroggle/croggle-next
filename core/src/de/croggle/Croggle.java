@@ -1,5 +1,6 @@
 package de.croggle;
 
+import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
@@ -155,6 +156,12 @@ public class Croggle extends Game {
 	 */
 	@Override
 	public void create() {
+		if (!DEBUG) {
+			Gdx.app.setLogLevel(Application.LOG_NONE);
+		} else {
+			Gdx.app.setLogLevel(Application.LOG_DEBUG);
+		}
+
 		de.croggle.data.AssetManager.initialize();
 		StyleHelper.initialize();
 		SoundHelper.initialize();
